@@ -1,0 +1,22 @@
+{
+  "name": "sr-playwright",
+  "version": "1.0.0",
+  "description": "A self-practice repository for exploring and learning the capabilities of Playwright for end-to-end testing, cicd setup, also with ai intergration",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shahrid92/sr-playwright.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shahrid92/sr-playwright/issues"
+  },
+  "homepage": "https://github.com/shahrid92/sr-playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.1"
+  }
+}
