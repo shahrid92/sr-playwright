@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little's Law Interactive Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <h2>Little's Law: L = λ × W</h2>
+    
+    <label for="lambdaInput">Arrival Rate (λ): </label>
+    <input type="number" id="lambdaInput" value="5" min="1" step="1">
+    
+    <button onclick="updateChart()">Update Chart</button>
+
+    <canvas id="littlesLawChart"></canvas>
+
+    <script>
+        let lambda = document.getElementById("lambdaInput").value; 
+        const W_values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Fixed time in system
+        let L_values = W_values.map(W => lambda * W); // Compute L using Little's Law
+
+        const ctx = document.getElementById('littlesLawChart').getContext('2d');
+        let chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: W_values,
+                datasets: [{
+                    label: 'Number of Customers in System (L)',
+                    data: L_values,
+                    borderColor: 'blue',
+                    backgroundColor: 'rgba(0, 0, 255, 0.2)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Time in System (W)'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Customers (L)'
+                        }
+                    }
+                }
+            }
+        });
+
+        function updateChart() {
+            lambda = document.getElementById("lambdaInput").value;
+            L_values = W_values.map(W => lambda * W);
+            chart.data.datasets[0].data = L_values;
+            chart.update();
+        }
+    </script>
+
+</body>
+</html>
