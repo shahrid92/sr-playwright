@@ -2,7 +2,7 @@ import { expect, type Locator, type Page } from '@playwright/test';
 
 export class LoginPage {
 
-    readonly page: Page;
+    //readonly page: Page;
     readonly loginButton: Locator;
     readonly usertTextField: Locator;
     readonly passTextField: Locator;
