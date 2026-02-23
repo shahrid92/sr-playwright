@@ -45,6 +45,62 @@
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
         "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/shahr/Shah Workspace/01 Practice/sr-playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "Mobile Chrome",
+        "name": "Mobile Chrome",
+        "testDir": "C:/Users/shahr/Shah Workspace/01 Practice/sr-playwright/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/shahr/Shah Workspace/01 Practice/sr-playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "Mobile Safari",
+        "name": "Mobile Safari",
+        "testDir": "C:/Users/shahr/Shah Workspace/01 Practice/sr-playwright/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/shahr/Shah Workspace/01 Practice/sr-playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "Microsoft Edge",
+        "name": "Microsoft Edge",
+        "testDir": "C:/Users/shahr/Shah Workspace/01 Practice/sr-playwright/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/shahr/Shah Workspace/01 Practice/sr-playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "Google Chrome",
+        "name": "Google Chrome",
+        "testDir": "C:/Users/shahr/Shah Workspace/01 Practice/sr-playwright/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
       }
     ],
     "shard": null,
@@ -56,52 +112,72 @@
   },
   "suites": [
     {
-      "title": "test-folder\\test.spec.js",
-      "file": "test-folder/test.spec.js",
+      "title": "test-folder\\admin-management.smoke.spec.ts",
+      "file": "test-folder/admin-management.smoke.spec.ts",
       "column": 0,
       "line": 0,
-      "specs": [
+      "specs": [],
+      "suites": [
         {
-          "title": "Admin login",
-          "ok": true,
-          "tags": [
-            "orangetest"
-          ],
-          "tests": [
+          "title": "Smoke Test",
+          "file": "test-folder/admin-management.smoke.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
             {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
+              "title": "User able to search specific menu via sidebar search ",
+              "ok": true,
+              "tags": [
+                "TC009"
+              ],
+              "tests": [
                 {
-                  "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 7325,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2025-03-28T07:04:58.601Z",
-                  "attachments": []
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "Description",
+                      "description": "To test users able to search specific menu"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "status": "passed",
+                      "duration": 30843,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-16T23:19:22.655Z",
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\shahr\\Shah Workspace\\01 Practice\\sr-playwright\\test-results\\test-folder-admin-manageme-a4077-ic-menu-via-sidebar-search--chromium\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
-              "status": "expected"
+              "id": "68443e136c49f12cc6da-0289fcd3f44362eb53b0",
+              "file": "test-folder/admin-management.smoke.spec.ts",
+              "line": 310,
+              "column": 7
             }
-          ],
-          "id": "e2fc606a0dfadf20c1dd-3080def9daadd0e9a798",
-          "file": "test-folder/test.spec.js",
-          "line": 4,
-          "column": 5
+          ]
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-03-28T07:04:57.759Z",
-    "duration": 8886.221000000001,
+    "startTime": "2026-02-16T23:19:19.722Z",
+    "duration": 41045.77000000002,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,
