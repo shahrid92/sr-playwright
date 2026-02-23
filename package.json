@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/shahrid92/sr-playwright#readme",
   "devDependencies": {
+    "@faker-js/faker": "^10.3.0",
     "@playwright/test": "^1.50.1",
     "@types/node": "^22.13.1",
     "barrelsby": "^2.8.1",

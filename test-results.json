@@ -105,7 +105,7 @@
     ],
     "shard": null,
     "updateSnapshots": "missing",
-    "updateSourceMethod": "3way",
+    "updateSourceMethod": "patch",
     "version": "1.50.1",
     "workers": 6,
     "webServer": null
@@ -121,37 +121,42 @@
         {
           "title": "Smoke Test",
           "file": "test-folder/admin-management.smoke.spec.ts",
-          "line": 4,
+          "line": 5,
           "column": 6,
           "specs": [
             {
-              "title": "Verify Admin top menu navigation routing",
+              "title": "User able to search specific menu via sidebar search ",
               "ok": true,
               "tags": [
-                "TC003"
+                "TC009"
               ],
               "tests": [
                 {
-                  "timeout": 30000,
-                  "annotations": [],
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "Description",
+                      "description": "To test users able to search specific menu"
+                    }
+                  ],
                   "expectedStatus": "passed",
-                  "projectId": "Google Chrome",
-                  "projectName": "Google Chrome",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 12,
+                      "workerIndex": 3,
                       "status": "passed",
-                      "duration": 12946,
+                      "duration": 30843,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-07T19:52:52.851Z",
+                      "startTime": "2026-02-16T23:19:22.655Z",
                       "attachments": [
                         {
                           "name": "trace",
                           "contentType": "application/zip",
-                          "path": "C:\\Users\\shahr\\Shah Workspace\\01 Practice\\sr-playwright\\test-results\\test-folder-admin-manageme-1fbc7-top-menu-navigation-routing-Google-Chrome\\trace.zip"
+                          "path": "C:\\Users\\shahr\\Shah Workspace\\01 Practice\\sr-playwright\\test-results\\test-folder-admin-manageme-a4077-ic-menu-via-sidebar-search--chromium\\trace.zip"
                         }
                       ]
                     }
@@ -159,9 +164,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "68443e136c49f12cc6da-22080703cab9dcc9ae68",
+              "id": "68443e136c49f12cc6da-0289fcd3f44362eb53b0",
               "file": "test-folder/admin-management.smoke.spec.ts",
-              "line": 74,
+              "line": 310,
               "column": 7
             }
           ]
@@ -171,8 +176,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-02-07T19:52:51.125Z",
-    "duration": 15738.195999999996,
+    "startTime": "2026-02-16T23:19:19.722Z",
+    "duration": 41045.77000000002,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,
