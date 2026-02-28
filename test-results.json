@@ -10,9 +10,7 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {
-      "actualWorkers": 1
-    },
+    "metadata": {},
     "preserveOutput": "always",
     "reporter": [
       [
@@ -125,48 +123,87 @@
           "column": 6,
           "specs": [
             {
-              "title": "User able to search specific menu via sidebar search ",
+              "title": "As Admin, Crete new user access",
               "ok": true,
               "tags": [
-                "TC009"
+                "TC001",
+                "smoke"
               ],
               "tests": [
                 {
-                  "timeout": 120000,
+                  "timeout": 30000,
                   "annotations": [
                     {
-                      "type": "Description",
-                      "description": "To test users able to search specific menu"
+                      "type": "Module",
+                      "description": "Create Users"
                     }
                   ],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "status": "passed",
-                      "duration": 30843,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-02-16T23:19:22.655Z",
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "C:\\Users\\shahr\\Shah Workspace\\01 Practice\\sr-playwright\\test-results\\test-folder-admin-manageme-a4077-ic-menu-via-sidebar-search--chromium\\trace.zip"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
+                  "projectId": "Google Chrome",
+                  "projectName": "Google Chrome",
+                  "results": [],
+                  "status": "skipped"
                 }
               ],
-              "id": "68443e136c49f12cc6da-0289fcd3f44362eb53b0",
+              "id": "68443e136c49f12cc6da-5c1855f5f0f6139ec9b3",
               "file": "test-folder/admin-management.smoke.spec.ts",
-              "line": 310,
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "As Admin, search existing employee",
+              "ok": true,
+              "tags": [
+                "TC002",
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "Module",
+                      "description": "Search existing employee user id"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "Google Chrome",
+                  "projectName": "Google Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "68443e136c49f12cc6da-5548e70b03cd46730274",
+              "file": "test-folder/admin-management.smoke.spec.ts",
+              "line": 51,
+              "column": 7
+            },
+            {
+              "title": "Verify Admin top menu navigation page",
+              "ok": true,
+              "tags": [
+                "TC003",
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "Module",
+                      "description": "Top menu navigation bar"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "Google Chrome",
+                  "projectName": "Google Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "68443e136c49f12cc6da-4fec9a0fb54d18c9e8dd",
+              "file": "test-folder/admin-management.smoke.spec.ts",
+              "line": 89,
               "column": 7
             }
           ]
@@ -176,10 +213,10 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-02-16T23:19:19.722Z",
-    "duration": 41045.77000000002,
-    "expected": 1,
-    "skipped": 0,
+    "startTime": "2026-02-28T03:09:59.643Z",
+    "duration": 203.688,
+    "expected": 0,
+    "skipped": 3,
     "unexpected": 0,
     "flaky": 0
   }

@@ -10,7 +10,7 @@ test.describe('Smoke Test', () => {
   ];
 
   test('As Admin, Crete new user access', {
-    tag: '@TC001',
+    tag: ['@TC001','@smoke'],
     annotation: {
       type: 'Module',
       description: 'Create Users',
@@ -49,7 +49,7 @@ test.describe('Smoke Test', () => {
 
 
   test('As Admin, search existing employee', {
-    tag: '@TC002',
+    tag: ['@TC002','@smoke'],
     annotation: {
       type: 'Module',
       description: 'Search existing employee user id',
@@ -87,7 +87,7 @@ test.describe('Smoke Test', () => {
 
 
   test("Verify Admin top menu navigation page", {
-    tag: '@TC003',
+    tag: ['@TC003','@smoke'],
     annotation: {
       type: 'Module',
       description: 'Top menu navigation bar',

@@ -1,0 +1,4 @@
+args:
+  playworker: 1
+  tags: '@TC002'
+  project: chromium

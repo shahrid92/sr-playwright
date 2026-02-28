@@ -43,3 +43,23 @@ https://playwright.dev/docs/best-practices
 https://www.youtube.com/watch?v=2O7dyz6XO2s
 
 
+Github actions
+```
+strategy:
+  matrix:
+    shardIndex: [1, 2, 3]
+    shardTotal: [3]
+
+steps:
+  - run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+
+```
+
+Run playwright using helm
+```
+helm install play-1 ./helm-playwright
+
+helm install play-1 ./helm-playwright -f values-smoke.yaml
+```
+
+
