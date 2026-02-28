@@ -15,7 +15,7 @@ jobs:
         node-version: lts/*
 
     - name: Run Playwright tests
-      run: helm install play-1 ./helm-playwright -f ci.yaml
+      run: helm install play-1 ./helm-playwright -f ./helm-playwright/values/ci.yaml
 
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
