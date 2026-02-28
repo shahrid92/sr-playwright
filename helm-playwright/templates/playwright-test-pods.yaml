@@ -1,0 +1,40 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: playwright-execution-job
+spec:
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 60
+  template:
+    spec:
+      restartPolicy: Never
+      nodeSelector:
+        kubernetes.io/hostname: k8s-node2
+      containers:
+      - name: playwright
+        image: mcr.microsoft.com/playwright:v1.50.1-noble
+        command: ["bash", "-c"]
+        args:
+          - |
+            apt-get update && apt-get install -y git
+            pwd
+            ls
+            git clone https://github.com/shahrid92/sr-playwright.git
+            ls -la
+            cd /sr-playwright
+            ls
+            pwd
+            npm ci
+            npx playwright --version
+            ls
+            npx playwright test --list
+            cat package.json
+            cat playwright.config.js
+            npx playwright test --grep {{.Values.args.tags}}  --workers={{.Values.args.playworker}}  --project={{.Values.args.project}}
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "1Gi"
+          limits:
+            cpu: "1"
+            memory: "2Gi"
