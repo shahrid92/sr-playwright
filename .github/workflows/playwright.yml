@@ -14,28 +14,9 @@ jobs:
       with:
         node-version: lts/*
 
-    - name: Cache node modules
-      uses: actions/cache@v4
-      with:
-        path: ~/.npm
-        key: node-${{ hashFiles('package-lock.json') }}
-
-    - name: Cache Playwright browsers
-      uses: actions/cache@v4
-      with:
-        path: ~/.cache/ms-playwright
-        key: playwright-${{ runner.os }}
-
-
-    - name: Install dependencies
-      run: npm ci
-
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-
     - name: Run Playwright tests
-      run: npx playwright test --grep @TC001 --project=chromium
-      
+      run: helm install play-1 ./helm-playwright -f ci.yaml
+
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
