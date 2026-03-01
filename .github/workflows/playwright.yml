@@ -23,7 +23,28 @@ jobs:
 
     - name: Wait Playwright Job Finish
       run: |
-        sudo kubectl wait --namespace=default --for=jsonpath='{.status.succeeded}'=1 --timeout=3m job/$REL_NAME || exit 1
+  
+        for i in {1..36}; do
+            SUCCEEDED=$(sudo kubectl get job $REL_NAME -n default -o jsonpath='{.status.succeeded}' 2>/dev/null)
+            FAILED=$(sudo kubectl get job $REL_NAME -n default -o jsonpath='{.status.failed}' 2>/dev/null)
+
+            if [ "$SUCCEEDED" == "1" ]; then
+                echo "Job Success"
+                exit 0
+            fi
+
+            if [ "$FAILED" != "" ] && [ "$FAILED" != "0" ]; then
+                echo "Job Failed"
+                sudo kubectl logs job/$REL_NAME --all-containers=true
+                exit 1
+            fi
+
+            echo "Waiting job status..."
+            sleep 5
+        done
+
+        echo "Timeout waiting job"
+        exit 1
       continue-on-error: true
 
     - name: Verify Job Status
