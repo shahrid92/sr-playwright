@@ -24,6 +24,7 @@ jobs:
     - name: Wait Playwright Job Finish
       run: |
         sudo kubectl wait --namespace=default --for=jsonpath='{.status.succeeded}'=1 --timeout=3m job/$REL_NAME || exit 1
+      continue-on-error: true
 
     - name: Verify Job Status
       run: |

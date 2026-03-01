@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ .Release.Name }}-execution-job
+  name: {{ .Release.Name }}
 spec:
   backoffLimit: 0
   ttlSecondsAfterFinished: 900
