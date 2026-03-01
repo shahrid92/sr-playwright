@@ -19,7 +19,7 @@ jobs:
 
     - name: Wait Playwright Job Finish
       run: |
-        sudo kubectl wait --namespace=default --for=jsonpath='{.status.succeeded}'=1 --timeout=5m job/playwright-execution-job || exit 1
+        sudo kubectl wait --namespace=default --for=jsonpath='{.status.succeeded}'=1 --timeout=3m job/playwright-execution-job || exit 1
 
     - name: Verify Job Status
       run: |

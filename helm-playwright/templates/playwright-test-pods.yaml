@@ -4,7 +4,7 @@ metadata:
   name: playwright-execution-job
 spec:
   backoffLimit: 0
-  ttlSecondsAfterFinished: 60
+  ttlSecondsAfterFinished: 300
   template:
     spec:
       restartPolicy: Never
