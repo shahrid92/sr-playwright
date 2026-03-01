@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: playwright-execution-job
+  name: {{ .Release.Name }}-execution-job
 spec:
   backoffLimit: 0
   ttlSecondsAfterFinished: 900
@@ -18,9 +18,10 @@ spec:
           - |
             apt-get update && apt-get install -y git
             git clone https://github.com/shahrid92/sr-playwright.git
-            cd /sr-playwright
+            cd sr-playwright
             npm ci
             npx playwright --version
+            npx playwright install --with-deps
             npx playwright test --grep {{.Values.args.tags}} --list --project=chromium
             npx playwright test --grep {{.Values.args.tags}}  --workers={{.Values.args.playworker}}  --project={{.Values.args.project}}
         resources:

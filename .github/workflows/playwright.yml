@@ -15,11 +15,11 @@ jobs:
         node-version: lts/*
 
     - name: Run Playwright tests
-      run: sudo helm install play-${{ github.sha }} ./helm-playwright -f ./helm-playwright/values/ci.yaml
+      run: sudo helm install ${{ github.sha }}-execution-job ./helm-playwright -f ./helm-playwright/values/ci.yaml
 
     - name: Wait Playwright Job Finish
       run: |
-        sudo kubectl wait --namespace=default --for=jsonpath='{.status.succeeded}'=1 --or=jsonpath='{.status.failed}'=1 --timeout=3m job/playwright-execution-job || exit 1
+        sudo kubectl wait --namespace=default --for=jsonpath='{.status.succeeded}'=1 --or=jsonpath='{.status.failed}'=1 --timeout=3m job/ob/${{ github.sha }}-execution-job || exit 1
 
     - name: Verify Job Status
       run: |
