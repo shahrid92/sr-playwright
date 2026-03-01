@@ -45,14 +45,7 @@ jobs:
 
         echo "Timeout waiting job"
         exit 1
-      continue-on-error: true
-
-    - name: Verify Job Status
-      run: |
-        FAILED=$(sudo kubectl get job $REL_NAME -o jsonpath='{.status.failed}')
-        if [ "$FAILED" != "0" ]; then
-          exit 1
-        fi
+        
     - name: Cleanup Helm Release
       run : |
         sudo helm uninstall $REL_NAME
