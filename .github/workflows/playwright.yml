@@ -15,7 +15,7 @@ jobs:
         node-version: lts/*
 
     - name: Run Playwright tests
-      run: sudo helm install play-1 ./helm-playwright -f ./helm-playwright/values/ci.yaml
+      run: sudo helm install play-${{ github.sha }} ./helm-playwright -f ./helm-playwright/values/ci.yaml
 
     - name: Wait Playwright Job Finish
       run: |
@@ -27,6 +27,9 @@ jobs:
         if [ "$FAILED" != "0" ]; then
           exit 1
         fi
+    - name: Cleanup Helm Release
+      run : |
+        helm uninstall play-${{ github.sha }}
 
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
