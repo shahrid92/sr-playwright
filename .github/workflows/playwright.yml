@@ -19,7 +19,7 @@ jobs:
         echo "REL_NAME=$REL_NAME" >> $GITHUB_ENV
 
     - name: Run Playwright tests
-      run: sudo helm install $REL_NAME ./helm-playwright -f ./helm-playwright/values/ci.yaml
+      run: sudo helm install $REL_NAME ./helm-playwright -f ./helm-playwright/values/ci.yaml --kubeconfig $KUBECONFIG
 
     - name: Wait Playwright Job Finish
       run: |

@@ -1,0 +1,22 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledJob
+metadata:
+  name: playwright-runner
+spec:
+  jobTargetRef:
+    template:
+      spec:
+        containers:
+        - name: playwright
+          image: mcr.microsoft.com/playwright:v1.50.1-noble
+          command: ["npm","run","test"]
+
+  pollingInterval: 5
+  maxReplicaCount: 20
+
+  triggers:
+  - type: redis
+    metadata:
+      address: redis-master:6379
+      listName: playwright-shards
+      listLength: "1"
