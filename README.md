@@ -62,4 +62,19 @@ helm install play-1 ./helm-playwright
 helm install play-1 ./helm-playwright -f values-smoke.yaml
 ```
 
+install redis queue
+```
+
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+
+
+helm install redis bitnami/redis \
+  --set auth.enabled=false \
+  --set architecture=standalone \
+  --set master.persistence.enabled=false \
+  --set master.resources.requests.memory=256Mi \
+  --set master.resources.limits.memory=512Mi
+```
+
 
