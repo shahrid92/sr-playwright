@@ -24,6 +24,8 @@ spec:
             npx playwright install --with-deps
             npx playwright test --grep {{.Values.args.tags}} --list --project=chromium
             npx playwright test --grep {{.Values.args.tags}}  --workers={{.Values.args.playworker}}  --project={{.Values.args.project}}
+            pwd
+            ls -la
         resources:
           requests:
             cpu: "2"
