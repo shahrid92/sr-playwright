@@ -9,7 +9,7 @@ spec:
     spec:
       restartPolicy: Never
       nodeSelector:
-        kubernetes.io/hostname: fedora
+        kubernetes.io/hostname: k8s-node2
       containers:
       - name: playwright
         image: mcr.microsoft.com/playwright:v1.50.1-noble
