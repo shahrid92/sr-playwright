@@ -91,7 +91,7 @@ test.describe('Smoke Test', () => {
     annotation: {
       type: 'Module',
       description: 'Top menu navigation bar',
-    }
+    } 
   }, async ({
     page,
     browser,
@@ -123,7 +123,7 @@ test.describe('Smoke Test', () => {
 
   test("Verify job titles creations",
     {
-      tag: '@TC004',
+      tag: ['@TC004','@smoke'],
       annotation: {
         type: 'Module',
         description: 'Top menu navigation bar',
@@ -164,7 +164,7 @@ test.describe('Smoke Test', () => {
 
 
   test("Ensure general information able to update", {
-    tag: '@TC005',
+    tag: ['@TC005','@smoke'],
     annotation: {
       type: 'Description',
       description: 'To validate users able to update general information details',
@@ -195,7 +195,7 @@ test.describe('Smoke Test', () => {
   })
   test("Verify skills can be addded",
     {
-      tag: '@TC006',
+      tag: ['@TC006','@smoke'],
       annotation: {
         type: 'Description',
         description: 'Verify the admin able to add new skills',
@@ -250,7 +250,7 @@ test.describe('Smoke Test', () => {
   test("Verify Corporate branding able to upload login banner",
     
      {
-      tag: '@TC007',
+      tag: ['@TC007','@smoke'],
       annotation: {
         type: 'Description',
         description: 'Ensure able to upload client banner image',
@@ -278,7 +278,7 @@ test.describe('Smoke Test', () => {
 
 
   test("verify 3 button exists rest to default,preview and publish", {
-      tag: '@TC008',
+      tag: ['@TC008','@smoke'],
       annotation: {
         type: 'Description',
         description: 'Verify 3 Button exists',
@@ -308,7 +308,7 @@ test.describe('Smoke Test', () => {
     })
 
   test("User able to search specific menu via sidebar search ",{
-      tag: '@TC009',
+      tag: ['@TC009','@smoke'],
       annotation: {
         type: 'Description',
         description: 'To test users able to search specific menu',
