@@ -48,6 +48,7 @@ jobs:
         exit 1
         
     - name: Cleanup Helm Release
+      if: always()
       run : |
         sudo helm uninstall $REL_NAME
 
