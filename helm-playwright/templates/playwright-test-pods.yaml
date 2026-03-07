@@ -26,8 +26,8 @@ spec:
             npx playwright test --grep {{.Values.args.tags}}  --workers={{.Values.args.playworker}}  --project={{.Values.args.project}}
         resources:
           requests:
-            cpu: "500m"
-            memory: "1Gi"
-          limits:
-            cpu: "1"
+            cpu: "2"
             memory: "2Gi"
+          limits:
+            cpu: "4"
+            memory: "4Gi"
