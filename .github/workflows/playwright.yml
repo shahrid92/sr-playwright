@@ -41,7 +41,7 @@ jobs:
             fi
 
             echo "Waiting job status..."
-            sleep 5
+            sleep 10
         done
 
         echo "Timeout waiting job"

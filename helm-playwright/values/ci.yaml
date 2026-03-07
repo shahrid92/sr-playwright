@@ -1,4 +1,4 @@
 args:
   playworker: 1
-  tags: '@TC001'
+  tags: '@smoke'
   project: chromium
