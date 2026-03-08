@@ -76,5 +76,9 @@ helm install redis bitnami/redis \
   --set master.resources.requests.memory=256Mi \
   --set master.resources.limits.memory=512Mi
 ```
+### REDIS Queue
 
+```
+helm install redis-queue bitnami/redis -f helm-redis-queue/redis-values.yaml
+```
 

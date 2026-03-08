@@ -1,0 +1,12 @@
+architecture: standalone # Simple for a queue; use 'replication' for HA
+auth:
+  enabled: true
+  password: "your-secure-password" # Better to use a K8s secret in production
+master:
+  persistence:
+    enabled: true
+    size: 8Gi
+  service:
+    type: ClusterIP
+    ports:
+      redis: 6379

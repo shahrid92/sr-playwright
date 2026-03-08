@@ -10,4 +10,4 @@ COPY . ./
 
 ENTRYPOINT ["sh", "-c", "echo 'PWD:' && pwd && echo 'LS:' && ls -al && exec \"$@\"", "--"]
 
-CMD ["sh", "-c", "npx playwright test --grep @smoke --list"]
+CMD ["sh", "-c", "npx playwright test --grep @smoke --list project=chromium"]
