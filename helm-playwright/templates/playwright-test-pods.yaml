@@ -26,6 +26,8 @@ spec:
             npx playwright test --grep {{.Values.args.tags}}  --workers={{.Values.args.playworker}}  --project={{.Values.args.project}}
             pwd
             ls -la
+            cd test-results
+            ls -la
         resources:
           requests:
             cpu: "2"
