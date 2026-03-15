@@ -81,4 +81,15 @@ helm install redis bitnami/redis \
 ```
 helm install redis-queue bitnami/redis -f helm-redis-queue/redis-values.yaml
 ```
+redis-queue-master.default.svc.cluster.local
 
+latest update: redis need to turn off pvc nad need a node selector
+
+
+```
+helm install playwright-redis bitnami/redis \
+  --set architecture=standalone \
+  --set auth.enabled=false \
+  --set master.persistence.enabled=false \
+  --set replica.replicaCount=0
+```

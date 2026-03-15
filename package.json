@@ -23,5 +23,9 @@
     "@types/node": "^22.13.1",
     "barrelsby": "^2.8.1",
     "tsconfig-paths": "^4.2.0"
+  },
+  "dependencies": {
+    "bullmq": "^5.71.0",
+    "ioredis": "^5.10.0"
   }
 }
