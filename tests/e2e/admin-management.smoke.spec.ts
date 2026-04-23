@@ -1,4 +1,4 @@
-import { LoginPage, DashboardPage, adminPage } from '@pages';
+import { LoginPage, DashboardPage, adminPage } from 'tests';
 import { test, expect } from '@fixtures';
 import { faker } from '@faker-js/faker';
 

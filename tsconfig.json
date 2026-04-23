@@ -4,7 +4,7 @@
     "module": "commonjs",
     "baseUrl": ".",                  
     "paths": {
-      "@pages": ["src"],
+      "@pages": ["tests"],
       "@fixtures": ["fixtures"]       
     },
     "types": ["node", "@playwright/test"],  
@@ -12,5 +12,5 @@
     "resolveJsonModule": true,
     "strict": true
   },
-  "include": ["src", "tests", "playwright.config.ts"]
+  "include": ["tests", "src/tests", "playwright.config.ts"]
 }
