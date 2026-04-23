@@ -8,8 +8,8 @@ spec:
       spec:
         containers:
         - name: playwright
-          image: mcr.microsoft.com/playwright:v1.50.1-noble
-          command: ["npm","run","test"]
+          image: shahrid92/sr-playwirght-worker
+          #command: ["npm","run","test"]
 
   pollingInterval: 5
   maxReplicaCount: 20

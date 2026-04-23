@@ -14,9 +14,9 @@ async function addShards(totalShards) {
     await testQueue.add(`shard-${i}`, {
       shardIndex: i,
       totalShards: totalShards,
-      configFile: '../../playwright.config.ts',
+      configFile: 'playwright.config.ts',
       project: 'chromium',
-      workers: 2
+      workers: 4
     },{
             attempts: 3,
             backoff: {
