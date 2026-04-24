@@ -4,7 +4,7 @@ auth:
   password: "your-secure-password" # Better to use a K8s secret in production
 master:
   persistence:
-    enabled: true
+    enabled: false
     size: 8Gi
   service:
     type: ClusterIP
