@@ -1,5 +1,4 @@
 import {test,expect,type Page, type Locator}  from '@playwright/test'
-import { exitCode } from 'process';
 
 export class adminPage{
 
@@ -7,7 +6,6 @@ export class adminPage{
     readonly userRoleSelect: Locator;
     readonly userRoleSelection: Locator;
     readonly employeeNameTextField: Locator;
-    readonly statusSelection: Locator;
     readonly buttonSearch: Locator;
     readonly page:Page
 
@@ -15,7 +13,6 @@ export class adminPage{
          this.userTextField = page.locator("div.oxd-input-group__label-wrapper + div > input");
          this.userRoleSelection = page.locator("//div[@class='oxd-select-text oxd-select-text--focus']/following-sibling::div[@class='oxd-select-dropdown --positon-bottom']/div[@role='option']/span");
          this.employeeNameTextField = page.locator("//input[@placeholder='Type for hints...']");
-         this.statusSelection = page.locator("");
          this.userRoleSelect = page.locator(".oxd-select-text > [tabindex='0']");
          this.buttonSearch = page.locator("div > button[type='submit']")
          this.page = page;
@@ -31,7 +28,7 @@ export class adminPage{
         
         const emm_name_autocomplete = this.page.getByRole("option")
 
-        emm_name_autocomplete.waitFor({
+        await emm_name_autocomplete.waitFor({
             state:"visible",
             timeout:5000
         })

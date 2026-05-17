@@ -12,5 +12,5 @@
     "resolveJsonModule": true,
     "strict": true
   },
-  "include": ["tests", "src/tests", "playwright.config.ts"]
+  "include": ["tests", "playwright.config.ts"]
 }

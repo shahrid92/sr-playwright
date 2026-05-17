@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 1. Get total tests
-GET_TOTAL_TESTS=$(npx playwright test --grep @smoke --list --config '../../playwright.config.ts' --project='chromium')
+GET_TOTAL_TESTS=$(npx playwright test --grep @smoke --list --config '../../../playwright.config.ts' --project='chromium')
 
 WORKERS=4
 

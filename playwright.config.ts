@@ -1,4 +1,17 @@
 import { defineConfig, devices } from '@playwright/test';
+import { defineBddConfig } from 'playwright-bdd';
+
+const testDir = defineBddConfig({
+  features: ['tests/bdd/features/*.feature'],
+  steps: [
+    'tests/bdd/steps/*.ts',
+    'tests/fixtures/*.ts'
+  ],
+  outputDir: '.features-gen',
+  // must tell the location of base.extend
+  importTestFrom: 'tests/bdd/fixtures/testFixtures.ts'
+});
+
 
 /**
  * Read environment variables from file.
@@ -12,7 +25,9 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  
   testDir: './tests',
+  //testDir, //<------------------------------------------------ temp for bdd test
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -24,7 +39,16 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['list'],
-    ['json', {  outputFile: 'test-results.json' }]
+    ['html', { outputFolder: './tests/test-results/html-report' }],
+    ['json', {  outputFile: './tests/test-results/test-results.json' }],
+   [
+      'allure-playwright',
+      {
+        resultsDir: './tests/test-results/allure-results/',   // require folder name allure-results for generate command
+        detail: true,
+        suiteTitle: true,
+      },
+   ]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -34,6 +58,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
+  
 
   /* Configure projects for major browsers */
   projects: [
@@ -68,4 +93,5 @@ export default defineConfig({
   //   url: 'http://127.0.0.1:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
+  
 });
