@@ -10,12 +10,12 @@ test.describe('Smoke Test', () => {
   ];
 
   test('As Admin, Crete new user access', {
-    tag: ['@TC001','@smoke'],
+    tag: ['@TC001', '@smoke'],
     annotation: {
       type: 'Module',
       description: 'Create Users',
     }
-  }, async ({ page, browser, loginPage, dashboard }) => {
+  }, async ({ page, browser }) => {
 
     test.info().annotations.push({
       type: 'browser version',
@@ -23,6 +23,8 @@ test.describe('Smoke Test', () => {
     });
 
     test.setTimeout(120000)
+
+    await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index");
 
     await page.getByRole('link', { name: 'Admin' }).click();
     await page.getByRole('button', { name: ' Add' }).click();
@@ -49,22 +51,22 @@ test.describe('Smoke Test', () => {
 
 
   test('As Admin, search existing employee', {
-    tag: ['@TC002','@smoke'],
+    tag: ['@TC002', '@smoke'],
     annotation: {
       type: 'Module',
       description: 'Search existing employee user id',
     }
   }, async ({
     page,
-    browser,
-    loginPage,
-    dashboard
+    browser
   }) => {
 
     test.info().annotations.push({
       type: 'browser version',
       description: browser.version(),
     });
+
+    await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index");
 
     await page.getByRole('link', { name: 'Admin' }).click();
 
@@ -87,11 +89,11 @@ test.describe('Smoke Test', () => {
 
 
   test("Verify Admin top menu navigation page", {
-    tag: ['@TC003','@smoke'],
+    tag: ['@TC003', '@smoke'],
     annotation: {
       type: 'Module',
       description: 'Top menu navigation bar',
-    } 
+    }
   }, async ({
     page,
     browser,
@@ -123,7 +125,7 @@ test.describe('Smoke Test', () => {
 
   test("Verify job titles creations",
     {
-      tag: ['@TC004','@smoke'],
+      tag: ['@TC004', '@smoke'],
       annotation: {
         type: 'Module',
         description: 'Top menu navigation bar',
@@ -164,7 +166,7 @@ test.describe('Smoke Test', () => {
 
 
   test("Ensure general information able to update", {
-    tag: ['@TC005','@smoke'],
+    tag: ['@TC005', '@smoke'],
     annotation: {
       type: 'Description',
       description: 'To validate users able to update general information details',
@@ -195,7 +197,7 @@ test.describe('Smoke Test', () => {
   })
   test("Verify skills can be addded",
     {
-      tag: ['@TC006','@smoke'],
+      tag: ['@TC006', '@smoke'],
       annotation: {
         type: 'Description',
         description: 'Verify the admin able to add new skills',
@@ -248,9 +250,9 @@ test.describe('Smoke Test', () => {
       await expect(page.getByText('Successfully Saved')).toBeVisible();
     })
   test("Verify Corporate branding able to upload login banner",
-    
-     {
-      tag: ['@TC007','@smoke'],
+
+    {
+      tag: ['@TC007', '@smoke'],
       annotation: {
         type: 'Description',
         description: 'Ensure able to upload client banner image',
@@ -268,69 +270,69 @@ test.describe('Smoke Test', () => {
       await page.getByRole('link', { name: 'Admin' }).click();
       await page.getByRole('listitem').filter({ hasText: 'Corporate Branding' }).click();
       await page.getByRole('button', { name: 'Reset to Default' }).click();
-      await page.getByText('Browse').nth(2).waitFor({state:'visible'})
+      await page.getByText('Browse').nth(2).waitFor({ state: 'visible' })
       await page.getByText('Browse').nth(2).click();
       await page.locator('div').filter({ hasText: /^Login BannerBrowseNo file selected$/ }).getByRole('textbox').setInputFiles('C:\\Users\\shahr\\Shah Workspace\\01 Practice\\sr-playwright\\test-file\\photo\\tst-banner-340-65.png');
       await page.getByRole('button', { name: 'Publish' }).click();
       await expect(page.getByText('Successfully Saved')).toBeVisible();
 
-   })
+    })
 
 
   test("verify 3 button exists rest to default,preview and publish", {
-      tag: ['@TC008','@smoke'],
-      annotation: {
-        type: 'Description',
-        description: 'Verify 3 Button exists',
-      }
-    }, async (
-      {
+    tag: ['@TC008', '@smoke'],
+    annotation: {
+      type: 'Description',
+      description: 'Verify 3 Button exists',
+    }
+  }, async (
+    {
       page,
       browser,
       loginPage,
       dashboard
     }
-    ) => {
+  ) => {
 
-      test.setTimeout(120000)
+    test.setTimeout(120000)
 
-      await page.getByRole('link', { name: 'Admin' }).click();
-      await page.getByRole('listitem').filter({ hasText: 'Corporate Branding' }).click();
+    await page.getByRole('link', { name: 'Admin' }).click();
+    await page.getByRole('listitem').filter({ hasText: 'Corporate Branding' }).click();
 
-      await page.getByRole('button',{name:"Reset to Default"}).waitFor({state:"visible"})
+    await page.getByRole('button', { name: "Reset to Default" }).waitFor({ state: "visible" })
 
-      await expect(page.getByRole('button',{name:"Reset to Default"})).toBeVisible();
-      await expect(page.getByRole('button',{name:"Preview"})).toBeVisible();
-      await expect(page.getByRole('button',{name:"Publish"})).toBeVisible();
-      
+    await expect(page.getByRole('button', { name: "Reset to Default" })).toBeVisible();
+    await expect(page.getByRole('button', { name: "Preview" })).toBeVisible();
+    await expect(page.getByRole('button', { name: "Publish" })).toBeVisible();
 
 
-    })
 
-  test("User able to search specific menu via sidebar search ",{
-      tag: ['@TC009','@smoke'],
-      annotation: {
-        type: 'Description',
-        description: 'To test users able to search specific menu',
-      }
-    }, async (
-      {
+  })
+
+  test("User able to search specific menu via sidebar search ", {
+    tag: ['@TC009', '@smoke'],
+    annotation: {
+      type: 'Description',
+      description: 'To test users able to search specific menu',
+    }
+  }, async (
+    {
       page,
       browser,
       loginPage,
       dashboard
     }
-    ) => {
+  ) => {
 
-      test.setTimeout(120000)
+    test.setTimeout(120000)
 
-      await page.getByRole('link', { name: 'Admin' }).click();
+    await page.getByRole('link', { name: 'Admin' }).click();
 
-      await page.getByRole('textbox', { name: 'Search' }).click();
-      await page.getByRole('textbox', { name: 'Search' }).fill('Dashboard')
-      await page.getByRole('link', { name: 'Dashboard' }).click()
+    await page.getByRole('textbox', { name: 'Search' }).click();
+    await page.getByRole('textbox', { name: 'Search' }).fill('Dashboard')
+    await page.getByRole('link', { name: 'Dashboard' }).click()
 
-     })
+  })
 
 });
 

@@ -176,3 +176,30 @@ run "generate-py-shards.sh" to get number of shards.
 ```
 node producer.js <number of shards>
 ```
+to be continue
+docker with multi worker run correctly able to recieve message uqeue from redis
+next action is merging report allure and native playwright shard
+
+
+### cli musy know
+
+
+npx playwright codegen
+npx playwright test --grep@TC001 --debug
+npx playwright test --grep=@TC001 --project=chromium --trace on
+npx playwright  test --ui
+npx playwright test --headed
+npx playwright show-report
+npx playwright show-trace trace.zip
+
+
+learn 
+screencast
+runtime annotation test.info().annotations.
+
+await page.waitforresponse worth to check
+Network interception (VERY important)
+Auuthentication state reuse
+API + UI hybrid testing
+await page.waitForLoadState('networkidle');
+playwright with kafka : https://dev.to/arkreddysfo/end-to-end-testing-validating-kafka-messages-with-playwright-2m0h
