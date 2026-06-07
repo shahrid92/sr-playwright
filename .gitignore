@@ -10,4 +10,4 @@ tests/test-results/
 package-lock.json
 /queue/bull-mq/producer/tests
 .playwright-cli
-/test-results
+./test-results

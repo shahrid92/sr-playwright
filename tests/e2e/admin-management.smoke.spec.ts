@@ -46,6 +46,13 @@ test.describe('Smoke Test', () => {
 
     await expect(page.getByText("System Users")).toBeVisible()
 
+    test.info().annotations.push({
+      type: 'issue',
+      description: 'JIRA-456'
+    });
+
+    console.log(test.info().annotations);
+
 
   });
 

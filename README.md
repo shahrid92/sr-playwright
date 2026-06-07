@@ -203,3 +203,6 @@ Auuthentication state reuse
 API + UI hybrid testing
 await page.waitForLoadState('networkidle');
 playwright with kafka : https://dev.to/arkreddysfo/end-to-end-testing-validating-kafka-messages-with-playwright-2m0h
+
+
+custom mcp for distributed shards into redis queue and k8s
