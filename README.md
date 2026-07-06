@@ -129,6 +129,8 @@ helm install playwright-redis bitnami/redis \
 
 kubectl port-forward service/skooner -n kube-system 8080:80 --address 0.0.0.0
 
+
+
 ---
 
 ## Reporting
@@ -187,7 +189,7 @@ next action is merging report allure and native playwright shard
 npx playwright codegen
 npx playwright test --grep@TC001 --debug
 npx playwright test --grep=@TC001 --project=chromium --trace on
-npx playwright  test --ui
+npx playwright test --ui
 npx playwright test --headed
 npx playwright show-report
 npx playwright show-trace trace.zip
@@ -206,3 +208,16 @@ playwright with kafka : https://dev.to/arkreddysfo/end-to-end-testing-validating
 
 
 custom mcp for distributed shards into redis queue and k8s
+
+1) mcp tools
+  - calculate how many shards
+  - 
+
+### parallel exeution using sharding with queue (Docker)
+
+control plane port forward bullmq
+
+kubectl port-forward service/redis-queue-master -n kube-system 6379:6379 --address 0.0.0.0
+
+build image from /infra/docker and run image with port 6379
+

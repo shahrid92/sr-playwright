@@ -33,7 +33,7 @@ const worker = new Worker(
 
     try {
       // 3. The Playwright Command
-      const command = `npx playwright test --shard=${shardIndex}/${totalShards} --grep=${tags} --workers=${workers} --project=${project} --config=${configFile}`;
+      const command = `npx playwright test --shard=${shardIndex}/${totalShards} --grep=${tags} --workers=${workers} --project=${project} --config=${configFile} --trace on`;
 
       console.log(`Executing: ${command}`);
 
@@ -44,8 +44,18 @@ const worker = new Worker(
 
       return { status: 'success', shard: shardIndex };
     } catch (error) {
-      console.error(`❌ Shard ${shardIndex} failed:`, error);
-      throw new Error('Test Execution Failed');
+      console.error(`❌ Shard ${shardIndex} failed`, error);
+
+      const err = new Error('Test Execution Failed');
+
+      // extra error meta data
+      err.data = {
+        shard: shardIndex,
+        message: error.message,
+        stack: error.stack
+      };
+
+      throw err;
     }
   },
   {
