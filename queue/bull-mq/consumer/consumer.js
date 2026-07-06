@@ -26,13 +26,14 @@ const worker = new Worker(
       configFile,
       project,
       workers,
+      tags
     } = job.data;
 
     console.log(`\n[Job ${job.id}] 🚀 Running Shard ${shardIndex}/${totalShards}`);
 
     try {
       // 3. The Playwright Command
-      const command = `npx playwright test --shard=${shardIndex}/${totalShards} --grep=@smoke --workers=${workers} --project=${project} --config=${configFile}`;
+      const command = `npx playwright test --shard=${shardIndex}/${totalShards} --grep=${tags} --workers=${workers} --project=${project} --config=${configFile}`;
 
       console.log(`Executing: ${command}`);
 

@@ -16,7 +16,9 @@ async function addShards(totalShards) {
       totalShards: totalShards,
       configFile: 'playwright.config.ts',
       project: 'chromium',
-      workers: 4
+      workers: 4,
+      tags: '@smoke'
+      
     },{
             attempts: 3,
             backoff: {
