@@ -1,0 +1,24 @@
+name: playwright  testing
+description: to test matrix
+on:
+  push:
+    branches: [ main, master ]
+jobs:
+  playwright:
+    strategy:
+      matrix:
+        shardIndex: [1, 2, 3]
+        shardTotal: [3]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - run: npm ci
+
+      - run: npx playwright test --grep=@smoke --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}

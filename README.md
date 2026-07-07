@@ -125,6 +125,12 @@ helm install playwright-redis bitnami/redis \
   --set master.configmap="maxmemory-policy noeviction"
 ```
 
+### Build Consumer Image
+
+```shell
+docker build -f ./infra/docker/Dockerfile.playwright_consumer -t test-consumer:latest .
+```
+
 ### Access Skooner
 
 kubectl port-forward service/skooner -n kube-system 8080:80 --address 0.0.0.0
