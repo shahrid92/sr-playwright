@@ -21,4 +21,7 @@ jobs:
 
       - run: npm ci
 
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
       - run: npx playwright test --grep=@smoke --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} --project=chromium
