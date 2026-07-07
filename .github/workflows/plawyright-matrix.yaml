@@ -21,4 +21,4 @@ jobs:
 
       - run: npm ci
 
-      - run: npx playwright test --grep=@smoke --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+      - run: npx playwright test --grep=@smoke --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} --project=chromium
